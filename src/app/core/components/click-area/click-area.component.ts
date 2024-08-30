@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatButtonModule } from '@angular/material/button';
+import { GameService } from '../../services/game.service';
 
 @Component({
   standalone: true,
@@ -10,6 +11,20 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './click-area.component.scss',
 })
 export class ClickAreaComponent {
-  @Input() points: number = 0;
-  @Output() onAddPoints = new EventEmitter();
+  private gameService = inject(GameService);
+
+  points: number = 0;
+
+  ngOnInit() {
+    this.gameService.read();
+
+    this.points = this.gameService.player.points;
+  }
+
+  addPoints() {
+    console.log('uh');
+    this.gameService.addPoints();
+
+    this.points = this.gameService.player.points;
+  }
 }

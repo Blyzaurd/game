@@ -1,1 +1,12 @@
-<p>click-store works!</p>
+<mat-list>
+  @for(bonus of bonuses; track bonus.id) {
+  <mat-list-item>
+    <div>
+      {{ bonus.title }} <mat-icon>{{ bonus.icon }}</mat-icon>
+
+      <button mat-button>Buy</button>
+    </div>
+  </mat-list-item>
+  <div>Price: {{ bonus.cost }}</div>
+  }
+</mat-list>
