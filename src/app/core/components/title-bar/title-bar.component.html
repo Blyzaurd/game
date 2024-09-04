@@ -1,4 +1,16 @@
 <div>
-  <a mat-button routerLink="">Return</a>
-  <a mat-button routerLink="click-store">Store</a>
+  <div>
+    @if(router.url != '/') {
+    <a mat-icon-button routerLink="">
+      <mat-icon>arrow_back</mat-icon>
+    </a>
+    } @if(router.url != '/click-store') {
+    <a mat-icon-button routerLink="click-store" color="primary">
+      <mat-icon>shopping_bag</mat-icon>
+    </a>
+    }
+  </div>
+  @if(router.url == '/') {
+  <button mat-button (click)="reset()">Reset</button>
+  }
 </div>

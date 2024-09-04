@@ -2,7 +2,7 @@ export interface Bonus {
   id: number;
   title: string;
   icon: string;
-  cost: number;
+  price: number;
   bonus: number;
   isBougth: boolean;
 }

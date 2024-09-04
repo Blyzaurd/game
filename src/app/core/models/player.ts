@@ -4,4 +4,5 @@ export interface Player {
   experience: number;
   points: number;
   clickBonus: number;
+  boughtBonusIds: number[];
 }

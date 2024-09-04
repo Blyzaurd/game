@@ -1,3 +1,6 @@
-<button (click)="addPoints()">
+<button (click)="addPoints(); addCombo()">
+  <mat-progress-bar mode="determinate" [value]="combo"></mat-progress-bar>
+  <br />
+  <strong>x{{ combo / 20 }}</strong>
   <h1>{{ points }}</h1>
 </button>

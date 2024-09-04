@@ -1,0 +1,16 @@
+<div>
+  <strong>
+    {{ title() }}
+  </strong>
+  <mat-icon>{{ icon() }}</mat-icon>
+  <button
+    mat-button
+    (click)="onBuy.emit(id())"
+    [disabled]="price() > points() || isBougth()"
+  >
+    {{
+      isBougth() ? "Bougth" : price() > points() ? "Not enough points" : "Buy"
+    }}
+  </button>
+</div>
+<div>Price: {{ price() }}</div>

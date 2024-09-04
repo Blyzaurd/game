@@ -1,12 +1,17 @@
-<mat-list>
-  @for(bonus of bonuses; track bonus.id) {
-  <mat-list-item>
-    <div>
-      {{ bonus.title }} <mat-icon>{{ bonus.icon }}</mat-icon>
-
-      <button mat-button>Buy</button>
-    </div>
-  </mat-list-item>
-  <div>Price: {{ bonus.cost }}</div>
-  }
-</mat-list>
+<div>
+  <mat-list>
+    @for(bonus of activeBonuses; track bonus.id) {
+    <mat-list-item>
+      <app-store-item
+        [id]="bonus.id"
+        [title]="bonus.title"
+        [icon]="bonus.icon"
+        [price]="bonus.price"
+        [points]="points"
+        [isBougth]="isBonusBought(bonus.id)"
+        (onBuy)="addBonus($event)"
+      />
+    </mat-list-item>
+    }
+  </mat-list>
+</div>
