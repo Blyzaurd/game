@@ -1,12 +1,10 @@
 <div>
+  <strong>Your points: {{ points }}</strong>
   <mat-list>
     @for(bonus of activeBonuses; track bonus.id) {
     <mat-list-item>
       <app-store-item
-        [id]="bonus.id"
-        [title]="bonus.title"
-        [icon]="bonus.icon"
-        [price]="bonus.price"
+        [bonus]="bonus"
         [points]="points"
         [isBougth]="isBonusBought(bonus.id)"
         (onBuy)="addBonus($event)"

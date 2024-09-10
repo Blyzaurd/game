@@ -1,16 +1,23 @@
+@if(bonus(); as bonus) {
 <div>
   <strong>
-    {{ title() }}
+    {{ bonus.title }}
   </strong>
-  <mat-icon>{{ icon() }}</mat-icon>
+  <mat-icon>{{ bonus.icon }}</mat-icon>
   <button
     mat-button
-    (click)="onBuy.emit(id())"
-    [disabled]="price() > points() || isBougth()"
+    (click)="onBuy.emit(bonus)"
+    [disabled]="bonus.price > points() || isBougth()"
   >
     {{
-      isBougth() ? "Bougth" : price() > points() ? "Not enough points" : "Buy"
+      isBougth()
+        ? "Bougth"
+        : bonus.price > points()
+        ? "Not enough points"
+        : "Buy"
     }}
   </button>
 </div>
-<div>Price: {{ price() }}</div>
+<div>Price: {{ bonus.price }}</div>
+
+}

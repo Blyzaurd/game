@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClickAreaComponent } from './core/components/click-area/click-area.component';
 import { TitleBarComponent } from './core/components/title-bar/title-bar.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +14,7 @@ import { TitleBarComponent } from './core/components/title-bar/title-bar.compone
     AppRoutingModule,
     ClickAreaComponent,
     TitleBarComponent,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

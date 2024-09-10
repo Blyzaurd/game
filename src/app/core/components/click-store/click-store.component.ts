@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { Bonus } from '../../models/bonus';
 import { GameService } from '../../services/game.service';
 import { StoreItemComponent } from '../store-item/store-item.component';
 
@@ -31,8 +32,10 @@ export class ClickStoreComponent {
     this.points = this.gameService.player.points;
   }
 
-  addBonus(bonusId: number) {
-    this.gameService.addBonus(bonusId);
+  addBonus(bonus: Bonus) {
+    this.points -= bonus.price;
+
+    this.gameService.addBonus(bonus.id);
   }
 
   isBonusBought(bonusId: number): boolean {
